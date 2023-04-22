@@ -1,905 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<title>CSFelix - Portfolio</title>
-
-		<!-- logotipo -->
-		<link rel="icon" href="./assets/images/logo.png" />
-
-		<!-- metas -->
-		<meta charset="utf-8" />
-		<meta name="theme-color" content="#05031c" />
-		<meta name="author" content="@CSFelix" />
-		<meta name="keywords" content="python, data science, data analysis, pandas, matplotlib, seaborn, scikit-learn, tensorflow, projects, programming, computing, computer, csfelix, github, github.io" />
-		<meta name="description" content="What's shakin, bacon? 👋 Welcome to my Personal Portfolio, enjoy the projects and let's learn together, shall we?" />
-		<meta property="og:image" content="./assets/images/logo.png" />
-		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-
-		<!-- css styles -->
-		<link rel="stylesheet" type="text/css" href="./assets/css/styles/global.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/styles/scrollbar.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/styles/header.css">
-		<link rel="stylesheet" type="text/css" href="./assets/css/styles/sections.css">
-		<link rel="stylesheet" type="text/css" href="./assets/css/styles/skills_cards.css">
-		<link rel="stylesheet" type="text/css" href="./assets/css/styles/contact_form.css">
-		<link rel="stylesheet" type="text/css" href="./assets/css/styles/footer.css">
-		<link rel="stylesheet" type="text/css" href="./assets/css/styles/modal.css">
-
-		<!-- JS Libraries -->
-		<script type="text/javascript" src="./assets/js/libraries/shuffle-text.js" defer></script>
-		<script type="text/javascript" src="./assets/js/libraries/scroll-reveal.js" defer></script>
-
-		<!-- scripts pre-loading -->
-		<script type="text/javascript" src="./assets/js/scripts/themes-toggle.js" defer></script>
-		<script type="text/javascript" src="./assets/js/scripts/text-shuffling-effect.js" defer></script>
-		<script type="text/javascript" src="./assets/js/scripts/scroll-to-reveal.js" defer></script>
-
-		<!-- JS Libraries -->
-		<script type="text/javascript" src="./assets/js/libraries/mo.min.js" defer></script>
-		<script type="text/javascript" src="./assets/js/libraries/vanilla-tilt.min.js" defer></script>
-
-		<!-- scripts pos-loading -->
-		<script type="text/javascript" src="./assets/js/scripts/mobile-menu-btn-effect.js" defer></script>
-		<script type="text/javascript" src="./assets/js/scripts/mobile-menu-toggle-effect.js" defer></script>
-		<script type="text/javascript" src="./assets/js/scripts/modal-toggle.js" defer></script>
-		<script type="text/javascript" src="./assets/js/scripts/click-burst.js" defer></script>
-
-		<!-- Easter Eggs -->
-		<script type="text/javascript" src="./assets/js/libraries/easter-eggs.js" defer></script>
-		<script type="text/javascript" src="./assets/js/libraries/import-easter-eggs.js" defer></script>
-	</head>
-
-	<body>
-
-		<!--
-			*******************
-			** Mobile Header **
-			*******************
-		-->
-		
-		<!-- toogle menu button -->
-		<div id="mobileMenuToggle" onclick="myFunction(this)">
-	  		<div id="bar1"></div>
-	  		<div id="bar2"></div>
-	  		<div id="bar3"></div>
-		</div>
-
-		<!-- mobile menu -->
-		<ul id="mobileMenu">
-			<a href="#aboutMeContainer"><li>About Me</li></a>
-			<a href="#skillsContainer"><li>Skills</li></a>
-			<a href="#projectsContainer"><li>Projects</li></a>
-			<a href="#reachMeContainer"><li>Reach Me</li></a>
-
-			<hr />
-
-			<li id="mobileThemeBtn">Settings</li>
-		</ul>
-
-		<!--
-			************
-			** Header **
-			************
-		-->
-		<header>
-			<img 
-				id="headerImg" 
-				src="./assets/images/header.jpg" 
-				alt="Uh-Oh, something went wrong. But it's just two tiny robots looking at each other!" 
-			/>
-
-			<nav>
-				<!-- GitHub Profile -->
-				<a id="gitHubProfile" 
-				   href="https://github.com/Nikhil-029" 
-				   target="_blank">
-					<img src="./assets/images/Headr.png" height="100" width="150">	
-				</a>
-
-				<!-- Menu Options -->
-				<ul id="desktopMenu">
-					<li><a href="#aboutMeContainer">About Me</a></li>
-					<li><a href="#skillsContainer">Skills</a></li>
-					<li><a href="#projectsContainer">Projects</a></li>
-					<li><a href="#reachMeContainer">Reach Me</a></li>
-				</ul>
-
-				<!-- Sponsor Me and Theme Buttons -->
-				<div id="sponsorThemeBtn">
-					<a 
-					  href="https://github.com/Nikhil-029" 
-					  target="_blank">
-						<button id="sponsorBtn">💗 Sponsor Me!</button>	
-					</a>
-					<button id="themeBtn">🎨</button>
-				</div>
-			</nav>
-
-			<img src="./future 2.svg">
-		</header>
-
-		<!-- Title and Subtitle -->
-		<section id="titleAndSubtitle">
-			<h1 class="toShuffle">What's shakin', bacon? 👋</h1>
-	  		<br />
-	  		<span class="toShuffle">Welcome to my Personal Portfolio!</span> 
-	  		<br />
-	  		<span class="toShuffle">Enjoy the projects and let's learn together, shall we?</span>
-		</section>
-
-		<!--
-			**************
-			** About Me **
-			**************
-		-->
-		<section id="aboutMeContainer" class="container">
-
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0a394d" fill-opacity="1" d="M0,160L12.6,138.7C25.3,117,51,75,76,80C101.1,85,126,139,152,170.7C176.8,203,202,213,227,202.7C252.6,192,278,160,303,165.3C328.4,171,354,213,379,234.7C404.2,256,429,256,455,218.7C480,181,505,107,531,80C555.8,53,581,75,606,85.3C631.6,96,657,96,682,117.3C707.4,139,733,181,758,176C783.2,171,808,117,834,117.3C858.9,117,884,171,909,176C934.7,181,960,139,985,117.3C1010.5,96,1036,96,1061,122.7C1086.3,149,1112,203,1137,234.7C1162.1,267,1187,277,1213,277.3C1237.9,277,1263,267,1288,240C1313.7,213,1339,171,1364,176C1389.5,181,1415,235,1427,261.3L1440,288L1440,0L1427.4,0C1414.7,0,1389,0,1364,0C1338.9,0,1314,0,1288,0C1263.2,0,1238,0,1213,0C1187.4,0,1162,0,1137,0C1111.6,0,1086,0,1061,0C1035.8,0,1011,0,985,0C960,0,935,0,909,0C884.2,0,859,0,834,0C808.4,0,783,0,758,0C732.6,0,707,0,682,0C656.8,0,632,0,606,0C581.1,0,556,0,531,0C505.3,0,480,0,455,0C429.5,0,404,0,379,0C353.7,0,328,0,303,0C277.9,0,253,0,227,0C202.1,0,177,0,152,0C126.3,0,101,0,76,0C50.5,0,25,0,13,0L0,0Z"></path></svg>
-			
-			<br /><br />
-
-			<!-- title -->
-			<h2 class="containerTitle">
-				<span class="containerTitleText">About Me</span>
-			</h2>
-
-			<br /><br />
-
-			<!-- content -->
-			<div class="containerContent">
-				<figure id='profilePic'>
-					<img src='./assets/images/Nikhil_pic.jpg' alt='My Profile Pic' />
-					<figcaption>What's shaking, bacon? Hope you enjoy my Portfolio!!</figcaption>
-				</figure>
-
-				<br /><br/>
-
-				<img class="sticker" id='aboutMeSticker' alt="Hey there!" hidden/>
-
-				<img class="sticker" src='./assets/stickers/robot/hi.gif' alt="Hey there!"/>
-				
-				<span>🌱 I'm Nikhil Vishwakarma, a passionate Programmer and Student from India.</span>
-				
-				<span>🔭 I'm currently working on Data Science projects (Machine and Deep Learning)</span>
-
-				<span>💬 Ask me about Python, Machine Learning and Data Science if you need help or have questions, we can talk for hours about it!</span>
-
-				<span>🤔 You can find out my skills and my latest projects below. Let's check it out.</span>
-
-				<span>📝 Check out my <a href="https://csfelix.vercel.app" target="_blank">Blog</a> and <a href="./assets/docs/Nikhil Resume(VIT).pdf" target="_blank" >Get Resume</a>.</span>
-
-				<!-- <span>📝 Check out my <a href="https://csfelix.vercel.app" target="_blank">Blog</a> and <a href="./assets/docs/curriulum-vitae-english.pdf" target="_blank">Curriculum Vitae</a>.</span> -->
-
-				<br />
-
-				<span class="scrollBellow">⏬ Scroll ⏬</span>
-			</div>
-
-		</section>
-
-		<!--
-			************
-			** Skills **
-			************
-		-->
-		<section id="skillsContainer" class="container">
-
-			<!-- background-color 1 -->
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#041f36" fill-opacity="1" d="M0,160L12.6,138.7C25.3,117,51,75,76,80C101.1,85,126,139,152,170.7C176.8,203,202,213,227,202.7C252.6,192,278,160,303,165.3C328.4,171,354,213,379,234.7C404.2,256,429,256,455,218.7C480,181,505,107,531,80C555.8,53,581,75,606,85.3C631.6,96,657,96,682,117.3C707.4,139,733,181,758,176C783.2,171,808,117,834,117.3C858.9,117,884,171,909,176C934.7,181,960,139,985,117.3C1010.5,96,1036,96,1061,122.7C1086.3,149,1112,203,1137,234.7C1162.1,267,1187,277,1213,277.3C1237.9,277,1263,267,1288,240C1313.7,213,1339,171,1364,176C1389.5,181,1415,235,1427,261.3L1440,288L1440,0L1427.4,0C1414.7,0,1389,0,1364,0C1338.9,0,1314,0,1288,0C1263.2,0,1238,0,1213,0C1187.4,0,1162,0,1137,0C1111.6,0,1086,0,1061,0C1035.8,0,1011,0,985,0C960,0,935,0,909,0C884.2,0,859,0,834,0C808.4,0,783,0,758,0C732.6,0,707,0,682,0C656.8,0,632,0,606,0C581.1,0,556,0,531,0C505.3,0,480,0,455,0C429.5,0,404,0,379,0C353.7,0,328,0,303,0C277.9,0,253,0,227,0C202.1,0,177,0,152,0C126.3,0,101,0,76,0C50.5,0,25,0,13,0L0,0Z"></path></svg>
-			
-			<br /><br />
-
-			<!-- title -->
-			<h2 class="containerTitle">
-				<span class="containerTitleText">Skills</span>
-			</h2>
-
-			<br /><br />
-
-			<!-- content -->
-			<div class="containerContent">
-				<img class="sticker" id="skillsSticker" alt="Skills!" hidden />
-				
-				<img class="sticker" src='./assets/stickers/robot/skills.gif' alt="Hey there!"/>
-
-				<br /><br />
-				<br /><br />
-				<br /><br />
-
-				<div id="skillsCardsContainer">
-					<!--
-						************
-						** Python **
-						************
-					-->
-					<a href="https://www.python.org" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/programming.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Python</h2>
-					    <img src="./assets/icons/python.svg" class="character" />
-					  </div>
-					</a>
-
-					<!--
-						************
-						** Julia **
-						************
-					-->
-					<!-- <a href="https://julialang.org" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/computing.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Julia</h2>
-					    <img src="./assets/icons/julia.svg" class="character" />
-					  </div>
-					</a> -->
-
-					<!--
-						*******
-						** R **
-						*******
-					-->
-					<a href="" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/java1.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Java</h2>
-					    <!-- <img src="./assets/icons/r.svg" class="character" /> -->
-					  </div>
-					</a>
-
-					<!--
-						***********************************
-						** Python Data Science Libraries **
-						***********************************
-					-->
-					<a href="https://www.anaconda.com" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/data-science.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">DS Libraries</h2>
-					    <img src="./assets/icons/anaconda.svg" class="character" />
-					  </div>
-					</a>
-
-					<!--
-						*********
-						** SQL **
-						*********
-					-->
-					<a href="https://www.sqlite.org/index.html" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/data.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">SQL</h2>
-					    <img src="./assets/icons/sql.svg" class="character" />
-					  </div>
-					</a>
-
-					<!--
-						***********
-						** Neo4J **
-						***********
-					-->
-					<a href="https://neo4j.com" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/analytics.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Neo4J</h2>
-					    <img src="./assets/icons/neo4j.svg" class="character" />
-					  </div>
-					</a>
-
-					<!--
-						***************
-						** Streamlit **
-						***************
-					-->
-					<a href="https://streamlit.io" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/polling.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Streamlit</h2>
-					    <img src="./assets/icons/streamlit.svg" class="character" />
-					  </div>
-					</a>
-
-					<!--
-						**********
-						** Math **
-						**********
-					-->
-					<a href="https://www.khanacademy.org" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/calculating.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Math</h2>
-					    <img src="./assets/icons/math.svg" class="character" />
-					  </div>
-					</a>
-
-					<!--
-						******************
-						** Apache Spark **
-						******************
-					-->
-					<a href="https://spark.apache.org" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/table.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Apache Spark</h2>
-					    <img src="./assets/icons/apache-spark.svg" class="character" />
-					  </div>
-					</a>
-
-					<!--
-						**************
-						** Mongo DB **
-						**************
-					-->
-					<a href="https://www.mongodb.com" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/json-file.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Mongo DB</h2>
-					    <img src="./assets/icons/mongodb.svg" class="character" />
-					  </div>
-					</a>
-
-					<!--
-						***********
-						** Redis **
-						***********
-					-->
-					<a href="https://redis.io" target="_blank">
-					  <div class="skillsCard">
-					    <div class="wrapper">
-					      <img src="./assets/icons/skills/ram.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Redis</h2>
-					    <img src="./assets/icons/redis.svg" class="character" />
-					  </div>
-					</a>
-				</div>
-			</div>
-
-			<br />
-		</section>
-
-		<!--
-			**************
-			** Projects **
-			**************
-		-->
-		<section id="projectsContainer" class="container">
-
-			<!-- background-color 2 -->
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0a394d" fill-opacity="1" d="M0,160L12.6,138.7C25.3,117,51,75,76,80C101.1,85,126,139,152,170.7C176.8,203,202,213,227,202.7C252.6,192,278,160,303,165.3C328.4,171,354,213,379,234.7C404.2,256,429,256,455,218.7C480,181,505,107,531,80C555.8,53,581,75,606,85.3C631.6,96,657,96,682,117.3C707.4,139,733,181,758,176C783.2,171,808,117,834,117.3C858.9,117,884,171,909,176C934.7,181,960,139,985,117.3C1010.5,96,1036,96,1061,122.7C1086.3,149,1112,203,1137,234.7C1162.1,267,1187,277,1213,277.3C1237.9,277,1263,267,1288,240C1313.7,213,1339,171,1364,176C1389.5,181,1415,235,1427,261.3L1440,288L1440,0L1427.4,0C1414.7,0,1389,0,1364,0C1338.9,0,1314,0,1288,0C1263.2,0,1238,0,1213,0C1187.4,0,1162,0,1137,0C1111.6,0,1086,0,1061,0C1035.8,0,1011,0,985,0C960,0,935,0,909,0C884.2,0,859,0,834,0C808.4,0,783,0,758,0C732.6,0,707,0,682,0C656.8,0,632,0,606,0C581.1,0,556,0,531,0C505.3,0,480,0,455,0C429.5,0,404,0,379,0C353.7,0,328,0,303,0C277.9,0,253,0,227,0C202.1,0,177,0,152,0C126.3,0,101,0,76,0C50.5,0,25,0,13,0L0,0Z"></path></svg>
-			
-			<br /><br />
-
-			<!-- title -->
-			<h2 class="containerTitle">
-				<span class="containerTitleText">Projects</span>
-			</h2>
-
-			<br /><br />
-
-			<!-- content -->
-			<div class="containerContent">
-				<img class="sticker" id="projectsSticker" alt="Hey there!" hidden />
-				
-				<img class="sticker" src='./assets/stickers/robot/projects.gif' alt="Proejcts!"/>
-
-				<br /><br />
-				<br /><br />
-				<br /><br />
-
-				<div id="projectsSubContainer">
-					<!--
-						**********************
-						** Kaggle Notebooks **
-						**********************
-					-->
-					<div id="kaggleBtn" class="skillsCard">
-						<div class="wrapper">
-					      <img src="./assets/icons/projects/cards/notebook.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Kaggle</h2>
-					    <img src="./assets/icons/kaggle.svg" class="character" />
-					</div>
-
-					<!--
-						*******************
-						** ML Algorithms **
-						*******************
-					-->
-					<div id="mlAlgorithmsBtn" class="skillsCard">
-						<div class="wrapper">
-					      <img src="./assets/icons/projects/cards/neural.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Algorithms</h2>
-					    <img src="./assets/icons/tensorflow.svg" class="character" />
-					</div>
-
-					<br /><br />
-
-					<!--
-						****************
-						** Dashboards **
-						****************
-					-->
-					<div id="dashboardBtn" class="skillsCard">
-						<div class="wrapper">
-					      <img src="./assets/icons/projects/cards/growth.png" class="cover-image" />
-					    </div>
-					    <h2 class="skillsTitle">Dashboards</h2>
-					    <img src="./assets/icons/dashboard.png" class="character" />
-					</div>
-				</div>
-				<br />
-		</section>
-
-		<!--
-			**************
-			** Reach Me **
-			**************
-		-->
-		<section id="reachMeContainer" class="container">
-
-			<!-- background-color 1 -->
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#041f36" fill-opacity="1" d="M0,160L12.6,138.7C25.3,117,51,75,76,80C101.1,85,126,139,152,170.7C176.8,203,202,213,227,202.7C252.6,192,278,160,303,165.3C328.4,171,354,213,379,234.7C404.2,256,429,256,455,218.7C480,181,505,107,531,80C555.8,53,581,75,606,85.3C631.6,96,657,96,682,117.3C707.4,139,733,181,758,176C783.2,171,808,117,834,117.3C858.9,117,884,171,909,176C934.7,181,960,139,985,117.3C1010.5,96,1036,96,1061,122.7C1086.3,149,1112,203,1137,234.7C1162.1,267,1187,277,1213,277.3C1237.9,277,1263,267,1288,240C1313.7,213,1339,171,1364,176C1389.5,181,1415,235,1427,261.3L1440,288L1440,0L1427.4,0C1414.7,0,1389,0,1364,0C1338.9,0,1314,0,1288,0C1263.2,0,1238,0,1213,0C1187.4,0,1162,0,1137,0C1111.6,0,1086,0,1061,0C1035.8,0,1011,0,985,0C960,0,935,0,909,0C884.2,0,859,0,834,0C808.4,0,783,0,758,0C732.6,0,707,0,682,0C656.8,0,632,0,606,0C581.1,0,556,0,531,0C505.3,0,480,0,455,0C429.5,0,404,0,379,0C353.7,0,328,0,303,0C277.9,0,253,0,227,0C202.1,0,177,0,152,0C126.3,0,101,0,76,0C50.5,0,25,0,13,0L0,0Z"></path></svg>
-			
-			<br /><br />
-
-			<!-- title -->
-			<h2 class="containerTitle">
-				<span class="containerTitleText">Reach Me</span>
-			</h2>
-
-			<br /><br />
-
-			<!-- content -->
-			<div class="containerContent">
-				<img class="sticker" id="reachMeSticker" alt="Hey there!" hidden />
-
-				<img class="sticker" src='./assets/stickers/robot/skills.gif' alt="Hey there!"/>
-				
-				<br />
-				<!--
-					************
-					** GitHub **
-					************
-				-->
-				<div class="reachMeSubContainer">
-					<img class="reachMeLogo" src="./assets/icons/github.svg" alt="GitHub Logo" />
-
-					<a href="https://github.com/Nikhil-029" target="_blank">
-						&nbsp<span>github.com/Nikhil-029</span>
-					</a>
-				</div>
-
-				<br />
-
-				<!--
-					************
-					** Kaggle **
-					************
-				-->
-				<div class="reachMeSubContainer">
-					<img class="reachMeLogo" src="./assets/icons/kaggle.svg" alt="Kaggle Logo" />
-
-					<a href="https://www.kaggle.com/nikhil113018" target="_blank">
-						&nbsp<span>kaggle.com/nikhil113018</span>
-					</a>
-				</div>
-
-				<br />
-
-				<!--
-					**************
-					** LinkedIn **
-					**************
-				-->
-				<div class="reachMeSubContainer">
-					<img class="reachMeLogo" src="./assets/icons/linkedin.svg" alt="LinkedIn Logo" />
-
-					<a href="https://www.linkedin.com/in/nikhil029" target="_blank">
-						&nbsp<span>linkedin.com/in/nikhil029/</span>
-					</a>
-				</div>
-
-				<br />
-
-				<!--
-					***********
-					** Gmail **
-					***********
-				-->
-				<div class="reachMeSubContainer">
-					<img class="reachMeLogo" src="./assets/icons/google.svg" alt="Google Logo" />
-
-					<a href="mailto:nk113018@gmail.com">
-						&nbsp<span>nk113018@gmail.com</span>
-					</a>
-				</div>
-
-				<br />
-				<br />
-
-				<!---
-					******************
-					** Contact Form **
-					******************
-				--->
-				<form id="contactForm" action="https://formsubmit.co/nk113018@gmail.com" method="POST">
-					<fieldset>
-						<legend><h3>📧 Hit Me Up 📧</h3></legend>
-						<br />
-					    <input class="contactFormField" type="hidden" name="_captcha" value="false">
-					    <input type="hidden" name="_subject" value="Hey there, I have visited your Portfolio!">
-					    <input class="contactFormField" type="text" name="name" placeholder="Your name" required>
-					    <input class="contactFormField" type="email" name="email" placeholder="Your email" required>
-					    <textarea class="contactFormField" name="message" placeholder="Details of your message" required></textarea>
-					    <button type="submit">Send</button>
-					</fieldset>
-				</form>
-
-				<br />
-		</section>
-
-		<!--
-			************
-			** Footer **
-			************
-		-->
-		<footer>
-			<img src="./assets/icons/balance.png" alt="Balance Icon" />
-			&nbsp
-			<span>GNU General Public License v3.0  - Copyrights 2018 - 2022</span>
-		</footer>
-
-		<!-- 
-			************
-			** Modals **
-			************
-		-->
-
-		<!-- Themes -->
-		<div id="themesModal" class="modal">
-		  
-		  <div class="modalContent">
-
-		  	<!-- close button -->
-		    <span id="themesClose" class="close">&times;</span>
-
-		    <!-- title -->
-		    <div class="modalTitle">
-		    	<span>🎨</span>
-		    	&nbsp
-		    	<span>Themes</span>
-		    </div>
-
-		    <br /><br />
-
-		    <!-- items -->
-		    <div class="modalItems">
-		    	<img class="sticker" src='./assets/stickers/robot/projects.gif' alt="Proejcts!"/>
-		    	
-		    	&nbsp
-
-		    	<h3>Coming soon...</h3>
-		    	<!--
-		    		*******************
-					** Default Theme **
-					*******************
-		    	-->
-		    	<!-- <div class="themeGroup">
-		    		<img id="defaultOptionSticker" alt="Default Theme" />
-		    		&nbsp
-		    		<input id="defaultOptionRadio" type="radio" name="actualTheme" value="0" />
-		    		&nbsp
-		    		<span>Default</span>
-		    	</div> -->
-
-		    	<!--
-		    		*********************
-					** Halloween Theme **
-					*********************
-		    	-->
-		    	<!-- <div class="themeGroup">
-		    		<img id="halloweenOptionSticker" alt="Halloween Theme" />
-		    		&nbsp
-		    		<input id="halloweenOptionRadio" type="radio" name="actualTheme" value="1" />
-		    		&nbsp
-		    		<span>Halloween</span>
-		    	</div> -->
-
-		    	<!--
-		    		*********************
-					** Christmas Theme **
-					*********************
-		    	-->
-		    	<!-- <div class="themeGroup">
-		    		<img id="christmasOptionSticker" alt="Christmas Theme" />
-		    		&nbsp
-		    		<input id="christmasOptionRadio" type="radio" name="actualTheme" value="2" />
-		    		&nbsp
-		    		<span>Christmas</span>
-		    	</div> -->
-
-		    	<!--
-		    		******************
-					** Easter Theme **
-					******************
-		    	-->
-		    	<!-- <div class="themeGroup">
-		    		<img id="easterOptionSticker" alt="Easter Theme" />
-		    		&nbsp
-		    		<input id="easterOptionRadio" type="radio" name="actualTheme" value="3" />
-		    		&nbsp
-		    		<span>Easter</span>
-		    	</div> -->
-
-		    </div>
-
-		    <!--
-		    	*****************
-		    	** Sponsor Btn **
-		    	*****************
-		    -->
-		    <br />
-		    <hr />
-		    <br />
-
-		    <div class="sponsorGroup">
-
-		    	<!-- title -->
-			    <div class="modalTitle">
-			    	<span>💗</span>
-			    	&nbsp
-			    	<span>Sponsorship</span>
-			    </div>
-
-			    <div>
-			    	<a 
-					  href="https://github.com/sponsors/CSFelix" 
-					  target="_blank">
-					    <button>💗 Sponsor Me!</button>	
-					</a>
-				</div>
-		    </div>
-		   
-		  </div>
-
-		</div>
-
-		<!-- Kaggle Notebooks -->
-		<div id="kaggleModal" class="modal">
-		  
-		  <div class="modalContent">
-
-		  	<!-- close button -->
-		    <span id="kaggleClose" class="close">&times;</span>
-
-		    <!-- title -->
-		    <div class="modalTitle">
-		    	<img src="./assets/icons/kaggle.svg" alt="Kaggle Logo" />
-		    	&nbsp
-		    	<span>Kaggle Notebooks</span>
-		    </div>
-
-		    <br />
-
-		    <!-- items -->
-		    <div class="modalItems">
-		    	<img id="kaggleModalSticker" alt="Hey There" hidden />
-		    	<img class="sticker" src='./assets/stickers/robot/projects.gif' alt="Projects!"/>
-		    	&nbsp
-
-		    	<!-- cards -->
-		    	<div class="cardsGroup">
-		    		
-					<!-- First Project -->
-		    		<a href="https://www.kaggle.com/code/dsfelix/predicting-future-sales" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/projects/trade.png" alt="Predict Future Sales">
-
-		    				<span>Predicting Future Sales</span>
-
-		    				<span class="badge regressionBadge">Regression</span>
-		    			</div>
-		    		</a>
-
-		    		<!-- Second Project -->
-		    		<a href="https://www.kaggle.com/code/dsfelix/predicting-us-stores-sales/notebook" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/projects/store.png" alt="Predicting US Stores Sales">
-
-		    				<span>Predicting US Stores Sales</span>
-
-		    				<span class="badge regressionBadge">Regression</span>
-		    			</div>
-		    		</a>
-
-		    		<!-- Third Project -->
-		    		<a href="https://www.kaggle.com/code/dsfelix/predicting-house-prices" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/projects/house-for-sale.png" alt="Predicting House Prices">
-
-		    				<span>Predicting House Prices</span>
-
-		    				<span class="badge regressionBadge">Regression</span>
-		    			</div>
-		    		</a>
-
-		    		<!-- Fourth Project -->
-		    		<a href="https://www.kaggle.com/code/dsfelix/prevendo-pre-o-de-casas/notebook" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/projects/house-for-sale.png" alt="Predicting House Prices">
-
-		    				<span>Predicting House Prices</span>
-		    				<span>(Portuguese Version)</span>
-
-		    				<span class="badge regressionBadge">Regression</span>
-		    			</div>
-		    		</a>
-
-		    		<!-- Fifth Project -->
-		    		<a href="https://www.kaggle.com/dsfelix/spaceship-titanic-competition" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/projects/spaceship.png" alt="Spaceship Titanic">
-
-		    				<span>Spaceship Titanic -</span>
-		    				<span>Dimensional Transportation</span>
-
-		    				<span class="badge classifierBadge">Classification</span>
-		    			</div>
-		    		</a>
-		    	</div>
-		    </div>
-		  </div>
-
-		</div>
-
-		<!-- ML Algorithms -->
-		<div id="mlAlgorithmsModal" class="modal">
-		  
-		  <div class="modalContent">
-
-		  	<!-- close button -->
-		    <span id="mlAlgorithmsClose" class="close">&times;</span>
-
-		    <!-- title -->
-		    <div class="modalTitle">
-		    	<img src="./assets/icons/tensorflow.svg" alt="Tensor Flow Logo" />
-		    	&nbsp
-		    	<span>ML Algorithms</span>
-		    </div>
-
-		    <br />
-
-		    <!-- items -->
-		    <div class="modalItems">
-		    	<img id="mlAlgorithmsModalSticker" alt="Hey There" hidden />
-		    	<img class="sticker" src='./assets/stickers/robot/projects.gif' alt="Projects!"/>
-		    	&nbsp
-		    	
-		    	<!-- cards -->
-		    	<div class="cardsGroup">
-		    		
-					<!-- First Project -->
-		    		<a href="https://www.kaggle.com/code/dsfelix/random-forest-regressor-algorithm" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/algorithms/trees.png" alt="Random Forest Regressor">
-
-		    				<span>Random Forest Regressor</span>
-
-		    				<span class="badge regressionBadge">Regression</span>
-		    			</div>
-		    		</a>
-
-		    		<!-- Second Project -->
-		    		<a href="https://www.kaggle.com/code/dsfelix/xgboost-regressor" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/algorithms/logistic-regression.png" alt="XGB Regressor">
-
-		    				<span>XGB Regressor</span>
-
-		    				<span class="badge regressionBadge">Regression</span>
-		    			</div>
-		    		</a>
-
-		    		<!-- Third Project -->
-		    		<a href="https://www.kaggle.com/code/dsfelix/xgboost-classifier" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/algorithms/clustering.png" alt="XGB Classifier">
-
-		    				<span>XGB Classifier</span>
-
-		    				<span class="badge classifierBadge">Classifier</span>
-		    			</div>
-		    		</a>
-		    	</div>
-		    </div>
-		  </div>
-
-		</div>
-
-		<!-- Dashboards -->
-		<div id="dashboardModal" class="modal">
-		  
-		  <div class="modalContent">
-
-		  	<!-- close button -->
-		    <span id="dashboardClose" class="close">&times;</span>
-
-		    <!-- title -->
-		    <div class="modalTitle">
-		    	<img src="./assets/icons/dashboard.png" alt="Dashboards Logo" />
-		    	&nbsp
-		    	<span>Dashboards</span>
-		    </div>
-
-		    <br />
-
-		    <!-- items -->
-		    <div class="modalItems">
-		    	<img id="dashboardModalSticker" alt="Hey There" hidden />
-		    	<img class="sticker" src='./assets/stickers/robot/projects.gif' alt="Projects!"/>
-		    	&nbsp
-		    	
-		    	<!-- cards -->
-		    	<div class="cardsGroup">
-		    		
-					<!-- First Project -->
-		    		<a href="https://csfelix-dashboard-us-stores-sales-app-26nuvr.streamlit.app" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/projects/store.png" alt="Dashboard US Store Sales">
-
-		    				<span>US Store Sales</span>
-
-		    				<span class="badge streamlitBadge">Streamlit</span>
-		    			</div>
-		    		</a>
-
-		    		<!-- Second Project -->
-		    		<a href="https://csfelix-programming-languages-poll-1--poll-6k70pi.streamlit.app" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/dashboards/polling.png" alt="Programming Languages Poll">
-
-		    				<span>Programming Languages Poll</span>
-
-		    				<span class="badge streamlitBadge">Streamlit</span>
-		    			</div>
-		    		</a>
-
-		    		<!-- Third Project -->
-		    		<a href="https://csfelix-csv-analyser-app-c389q5.streamlit.app" target="_blank">
-		    			<div class="card" data-tilt>
-		    				<img src="./assets/icons/dashboards/investigation.png" alt="Dashboard CSV Analyser">
-
-		    				<span>CSV Analyser</span>
-
-		    				<span class="badge streamlitBadge">Streamlit</span>
-		    			</div>
-		    		</a>
-		    	</div>
-		    </div>
-		  </div>
-
-		</div>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nikhil's Portfolio</title>
+
+
+    <!--  Bootstrap css file  -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!--  font awesome icons  -->
+    <link rel="stylesheet" href="./css/all.min.css">
+
+
+    <!--  Magnific Popup css file  -->
+    <link rel="stylesheet" href="./vendor/Magnific-Popup/dist/magnific-popup.css">
+
+
+    <!--  Owl-carousel css file  -->
+    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css">
+
+
+    <!--  custom css file  -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--  Responsive css file  -->
+    <link rel="stylesheet" href="./css/responsive.css">
+
+</head>
+
+<body>
+
+
+    <!--  ======================= Start Header Area ============================== -->
+
+    <header class="header_area">
+        <div class="main-menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#"><img src="./img/port2.png" alt="logo" height="150" width="250"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="mr-auto"></div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">about</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">services</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!--  ======================= End Header Area ============================== -->
+
+    <!--  ======================= Start Main Area ================================ -->
+    <main class="site-main">
+
+
+        <!--  ======================= Start Banner Area =======================  -->
+        <section class="site-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 site-title">
+                        <h3 class="title-text">Hey</h3>
+                        <h1 class="title-text text-uppercase">I am Nikhil</h1>
+                        <h4 class="title-text text-uppercase">Data Scientist</h4>
+                        <div class="site-buttons">
+                            <div class="d-flex flex-row flex-wrap">
+                                <button type="button" class="btn button primary-button mr-4 text-uppercase">hire
+                                    me</button>
+                                <button type="button"  class="btn button secondary-button text-uppercase " id="abc"><a class="cvbtn" href="CV.pdf" download>Get cv</a></button>
+                            </div>
+                            <style >
+
+                                .cvbtn{
+                                    color: black;
+                                }
+                                #abc:hover{
+                                    color: white;
+                                }
+                                .cvbtn:hover
+                                {
+                                    text-decoration:none;
+                                    color: white;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 banner-image">
+                        <img src="./img/banner/banner-image.png" alt="banner-img" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  ======================= End Banner Area =======================  -->
+
+        <!--  ========================= About Area ==========================  -->
+
+        <section class="about-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="about-image">
+                            <img src="./img/Nikhil_pic.jpg" alt="About us" class="img-fluid" >
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 about-title">
+                        <h2 class="text-uppercase pt-5">
+                            <span>Let me</span>
+                            <span>introduce</span>
+                            <span>myself</span>
+                        </h2>
+                        <div class="paragraph py-4 w-75">
+                            <p class="para">
+                                Hi! My name is Nikhil Kumar Vishwakarma. I am a Data Scientist, Web developer, and I’m here to introduce myself in my professional portfolio. I hope that you enjoy the work I’ve created.
+
+                            </p>
+                            <p class="para">                           
+                             I’m a Data Science specializing in predicting future and help to improve brand building. My work has been featured on this website where you can see my projects that i have worked on.I have worked with many clients to help them create powerful identities for their companies.
+
+                            </p>
+                        </div>
+                        <button type="button" class="btn button primary-button text-uppercase">Download cv</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ========================= End About Area ==========================  -->
+
+        <!--  ======================== Brand Area ==============================  -->
+
+        <section class="brand-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-12 col-md-12">
+                        <div class="first-row row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="./img/brands/logo1.png" alt="Brand-1 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="./img/brands/logo2.png" alt="Brand-2 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="./img/brands/logo3.png" alt="Brand-3 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="./img/brands/logo4.png" alt="Brand-4">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="./img/brands/logo5.png" alt="Brand-5 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="./img/brands/logo6.png" alt="Brand-6">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="./img/brands/logo7.png" alt="Brand-7 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="./img/brands/logo8.png" alt="Brand-8 ">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-brand">
+                                    <img src="./img/brands/logo9.png" alt="Brand-9">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-12 col-md-12">
+                        <div class="experience-area">
+                            <div class="d-flex flex-row years-area">
+                                <h2 class="p-3 years"></h2>
+                                <h2>
+                                    <span>No</span>
+                                    <span>Experience</span>
+                                    <span>Working</span>
+                                </h2>
+                            </div>
+                            <div class="d-flex flex-row flex-wrap call-area">
+                                <span><i class="fas fa-phone-alt fa-3x px-3"></i></span>
+                                <div class="call-now">
+                                    <a href="#" class="text-uppercase h4 font-roboto">Call Now</a>
+                                    <span class="font-roboto py-2">(+91)-620-504-3600</span>
+                                </div>
+                            </div>
+                            <div class="bg-panel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ======================== End Brand Area ==============================  -->
+
+        <!--  ====================== Start Services Area =============================  -->
+
+        <section class="services-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center services-title">
+                        <h1 class="text-uppercase title-text">Services Offers</h1>
+                        <p class="para">
+                            Although wine datasets are common in portfolios, Nikhil brings something completely new to the story through humorous section titles and exceptional visualizations. The charts here combine coolness with clarity, showcasing a clear understanding of how to tell a story and keep a reader interested.
+                        </p>
+                    </div>
+                </div>
+                <div class="container services-list">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="./img/services/s1.png" alt="Services-1">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Web developer</h5>
+                                    <p class="card-text text-secondary">
+                                        Design and Create  Websites for industries welfare. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="./img/services/s2.png" alt="Services-2">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Data Scientist</h5>
+                                    <p class="card-text text-secondary">
+                                   Code-based projects
+                                   Code-based projects are the most common type of portfolio project. In a nutshell, it replicates real-world data science projects by taking a dataset and solving a problem around it. Examples of code-based projects include:
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="services">
+                                <div class="sevices-img text-center py-4">
+                                    <img src="./img/services/s3.png" alt="Services-3">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-uppercase font-roboto">Data Analyst</h5>
+                                    <p class="card-text text-secondary">
+                                        Analyze Data and perform some mathematical calculations and prepare data for further predictions and normalize. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ====================== End Services Area =============================  -->
+
+        <!--  ======================= Project Area =============================  -->
+
+        <section class="project-area">
+            <div class="container">
+                <div class="project-title pb-5">
+                    <h1 class="text-uppercase title-h1">Recently Done Project</h1>
+                    <h1 class="text-uppercase title-h1">Quality Work</h1>
+                </div>
+                <div class="row grid">
+                	<div class="col-lg-4 col-md-6 col-sm-12 element-item latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_800,q_50/lsci/db/PICTURES/CMS/347600/347607.4.jpg" alt="portfolio-10" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Cricket Data <br><br>Analytics </h4>
+                                <span class="text-secondary">Ongoing, project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item latest">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="./img/portfolio/p1.jpg">
+                                    <img src="https://images.medicinenet.com/images/featured/detail_heart4.jpg" alt="portfolio-1" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Heart Disease </h4>
+                                <span class="text-secondary">Latest, project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item popular">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="./img/portfolio/p2.jpg">
+                                    <img src="https://www.shutterstock.com/image-photo/portraits-beautiful-lovely-pets-260nw-1898047246.jpg" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Cats and Dogs image <br><br>clasification</h4>
+                                <span class="text-secondary">Popular, Nural networks</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item popular">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="./img/portfolio/p3.jpg">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/07/08/28/notepad-3297994__480.jpg" alt="portfolio-3" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Notepad</h4>
+                                <span class="text-secondary">Popular, Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item upcoming">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="./img/portfolio/p4.jpg">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="portfolio-4" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">QR-Code Scanner</h4>
+                                <span class="text-secondary">Recently, Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item upcoming">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="./img/portfolio/p5.jpg">
+                                    <img src="https://vitbhopal.ac.in/file/2020/02/Academic-Block-VIT-Bhopal-2-scaled-e1580792952114.jpg" alt="portfolio-5" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">College Website(Clone)</h4>
+                                <span class="text-secondary">Upcoming, website</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item following">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="./img/portfolio/p6.jpg">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/MnistExamples.png/320px-MnistExamples.png" alt="portfolio-6" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">MINIST Image<br><br> Classification</h4>
+                                <span class="text-secondary">Recently, Nural networks</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item following">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="./img/portfolio/p7.jpg">
+                                    <img src="https://images.unsplash.com/photo-1637203727317-3cc1a557cdbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29ybGQlMjBjdXAlMjB0cm9waHl8ZW58MHx8MHx8&w=1000&q=80" alt="portfolio-7" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Fifa world cup data</h4>
+                                <span class="text-secondary">Rectly, Regression</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item following">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="./img/portfolio/p8.jpg">
+                                    <img src="https://media.istockphoto.com/id/1311247904/photo/uber-car-waiting-for-customer.jpg?s=612x612&w=0&k=20&c=jGyIr3O7N6n92Lb8DjzjAiQ0ApOeYOalvtO3012a2Zw=" alt="portfolio-8" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Uber Data Prediction</h4>
+                                <span class="text-secondary">Recently, Data Science</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 element-item upcoming">
+                        <div class="our-project">
+                            <div class="img">
+                                <a class="test-popup-link" href="./img/portfolio/p9.jpg">
+                                    <img src="https://thumbs.dreamstime.com/b/sales-growth-graph-hand-drawing-marker-transparent-wipe-board-92307566.jpg" alt="portfolio-9" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="title py-4">
+                                <h4 class="text-uppercase">Sales dataset </h4>
+                                <span class="text-secondary">Recently, Data Science</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  ======================= End Project Area =============================  -->
+
+        <!--  ======================== About Me Area ==============================  -->
+
+        <section class="about-area">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <div class="about-title">
+                            <h1 class="text-uppercase title-h1">Client Say about me</h1>
+                            <p class="para">
+                                Hard Working and Dedicated person  projects and works are submitted on or before the given time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!--  ======================== End About Me Area ==============================  -->
+
+        <!--  ========================== Subscribe me Area ============================  -->
+        <section class="subscribe-us-area">
+            <div class="container subscribe">
+                <div class="row">
+                    <div class="col-lg-12 text-center subscribe-title">
+                        <h4 class="text-uppercase">Get Update From anywhere</h4>
+                        <p class="para">Email Id: nk113018@gmail.com
+                          <br>Ranchi,Jharkhand</p>
+                    </div>
+                </div>
+                <div class="d-sm-flex justify-content-center">
+                    <form class="w-50">
+                        <div class="row d-flex flex-row flex-wrap">
+                            <div class="col input-textbox">
+                                <input type="text" id="txtemail" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="col">
+                                <div class="btn-submit">
+                                    <button type="submit" class="btn btn-success float-right">Subscribe</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!--  ========================== End Subscribe me Area ============================  -->
+
+
+    </main>
+    <!--  ======================= End Main Area ================================ -->
+
+    <footer class="footer-area">
+        <div class="container">
+            <div class="">
+                <div class="site-logo text-center py-4">
+                    <a href="#"><img src="./img/logo.png" alt="logo"></a>
+                </div>
+                <div class="social text-center">
+                    <h5 class="text-uppercase">Follow me</h5>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="copyrights text-center">
+                    <p class="para">
+                        Thank you I hope you have seen some awsome projects and portfolio. 
+                        <a href="#"><span style="color: var(--primary-color);">Data Science</span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
 </html>
