@@ -52,17 +52,17 @@
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">about</a>
+                            <a class="nav-link" href="#about">about</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">services</a>
+                            <a class="nav-link" href="#services">services</a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">blog</a>
+                            <a class="nav-link" href="#project">Project</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">contact</a>
+                            <a class="nav-link" href="#contact">contact</a>
                         </li>
 
                     </ul>
@@ -117,8 +117,8 @@
 
         <!--  ========================= About Area ==========================  -->
 
-        <section class="about-area">
-            <div class="container-fluid">
+        <section class="about-area" id="about">
+            <div class="container-fluid" >
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <div class="about-image">
@@ -231,9 +231,9 @@
 
         <!--  ====================== Start Services Area =============================  -->
 
-        <section class="services-area">
+        <section class="services-area" id="services">
             <div class="container">
-                <div class="row">
+                <div class="row ">
                     <div class="col-lg-12 text-center services-title">
                         <h1 class="text-uppercase title-text">Services Offers</h1>
                         <p class="para">
@@ -242,7 +242,7 @@
                     </div>
                 </div>
                 <div class="container services-list">
-                    <div class="row">
+                    <div class="row d-flex justify-content-around">
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="services">
                                 <div class="sevices-img text-center py-4">
@@ -284,9 +284,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            
-                        </div>
                     </div>
                 </div>
             </div>
@@ -296,7 +293,7 @@
 
         <!--  ======================= Project Area =============================  -->
 
-        <section class="project-area">
+        <section class="project-area" id="project">
             <div class="container">
                 <div class="project-title pb-5">
                     <h1 class="text-uppercase title-h1">Recently Done Project</h1>
@@ -306,7 +303,9 @@
                 	<div class="col-lg-4 col-md-6 col-sm-12 element-item latest">
                         <div class="our-project">
                             <div class="img">
-                                <a class="test-popup-link" href="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_800,q_50/lsci/db/PICTURES/CMS/347600/347607.4.jpg" alt="portfolio-10" class="img-fluid">
+                                <a class="test-popup-link" href="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/02/cricket-stats.jpg">
+                                    <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/02/cricket-stats.jpg" alt="portfolio-10" class="img-fluid">
+                                </a>
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -332,7 +331,7 @@
                         <div class="our-project">
                             <div class="img">
                                 <a class="test-popup-link" href="./img/portfolio/p2.jpg">
-                                    <img src="https://www.shutterstock.com/image-photo/portraits-beautiful-lovely-pets-260nw-1898047246.jpg" class="img-fluid">
+                                    <img src="https://www.shutterstock.com/image-photo/portraits-beautiful-lovely-pets-260nw-1898047246.jpg" alt="portfolio-2" class="img-fluid">
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -358,7 +357,7 @@
                         <div class="our-project">
                             <div class="img">
                                 <a class="test-popup-link" href="./img/portfolio/p4.jpg">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="portfolio-4" class="img-fluid">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="portfolio-4" class="img-fluid" height="50">
                                 </a>
                             </div>
                             <div class="title py-4">
@@ -459,27 +458,26 @@
         <!--  ======================== End About Me Area ==============================  -->
 
         <!--  ========================== Subscribe me Area ============================  -->
-        <section class="subscribe-us-area">
+        <section class="subscribe-us-area" id="contact">
             <div class="container subscribe">
                 <div class="row">
                     <div class="col-lg-12 text-center subscribe-title">
-                        <h4 class="text-uppercase">Get Update From anywhere</h4>
-                        <p class="para">Email Id: nk113018@gmail.com
-                          <br>Ranchi,Jharkhand</p>
+                        <h4 class="text-uppercase">Contact Me</h4>
+                        <!-- <p class="para">Email Id: nk113018@gmail.com
+                          <br>Ranchi,Jharkhand</p> -->
                     </div>
                 </div>
                 <div class="d-sm-flex justify-content-center">
-                    <form class="w-50">
-                        <div class="row d-flex flex-row flex-wrap">
-                            <div class="col input-textbox">
-                                <input type="text" id="txtemail" class="form-control" placeholder="Email">
-                            </div>
-                            <div class="col">
-                                <div class="btn-submit">
-                                    <button type="submit" class="btn btn-success float-right">Subscribe</button>
-                                </div>
-                            </div>
-                        </div>
+                    <form id="contactForm" action="https://formsubmit.co/nk113018@gmail.com" method="POST">
+                        <fieldset>
+                            <br>
+                            <input class="contactFormField" type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_subject" value="Hey there, I have visited your Portfolio!">
+                            <input class="contactFormField" type="text" name="name" placeholder="Your name" required><br>
+                            <input class="contactFormField" type="email" name="email" placeholder="Your email" required><br>
+                            <textarea class="contactFormField" name="message" placeholder="Details of your message" required></textarea><br>
+                            <button class="btn button secondary-button text-uppercase btx" type="submit">Send</button>
+                        </fieldset>
                     </form>
                 </div>
             </div>

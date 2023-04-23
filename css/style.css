@@ -11,7 +11,9 @@
 
 
 /* start navigation */ 
-
+body{
+    width: 100vw;
+}
 .header_area .main-menu .navbar .navbar-brand{
     padding: 0 2rem 0 5rem;
 }
@@ -288,8 +290,8 @@
 
 .site-main .subscribe-us-area .subscribe{
     background: url(../img/subscribe-bg.png) no-repeat;
-    padding: 10rem 0;
-    margin: 3rem auto;
+    padding: 1rem 0;
+    margin: 1rem auto;
 }
 
 .site-main .subscribe-us-area .subscribe .subscribe-title h4{
@@ -346,3 +348,68 @@ footer.footer-area .social a:hover > i{
 
 
 /* End Footer */ 
+
+
+
+
+hr {
+	width: 100%;
+	border: 1px solid var(--background-color-3);
+	background-color: var(--background-color-3);
+}
+
+#contactForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	width: 100%;
+}
+
+#contactForm fieldset {
+	padding: 10px;
+	border-radius: 5px;
+	position: relative;
+}
+
+#contactForm fieldset legend {
+	text-align: left;
+}
+
+.contactFormField {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+button[type=submit] {
+  background-color: var(--background-color-3);
+  cursor: pointer;
+  color: #363636;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:  all 0.3s ease;
+}
+
+button[type=submit]:hover {
+  opacity: 0.75;
+}
+.contactFormField
+{
+    padding: 0.8rem 8.75rem 0.8rem 1rem;
+}
+.btx:hover
+{
+    border: 1px solid black !important;
+}
+
+
+
