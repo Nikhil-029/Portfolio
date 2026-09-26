@@ -1,515 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nikhil's Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nikhil — AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EEF1F4;
+    --bg-raised: #E4E8ED;
+    --ink: #101623;
+    --ink-soft: #4A5568;
+    --line: #C7CDD6;
+    --signal: #B5651D;
+    --signal-soft: #D98C3F;
+    --mono: 'JetBrains Mono', 'SF Mono', monospace;
+    --sans: 'Inter', -apple-system, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0F1420;
+      --bg-raised: #161C2B;
+      --ink: #E7EAF0;
+      --ink-soft: #94A0B4;
+      --line: #2A3244;
+      --signal: #D98C3F;
+      --signal-soft: #B5651D;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F1420;
+    --bg-raised: #161C2B;
+    --ink: #E7EAF0;
+    --ink-soft: #94A0B4;
+    --line: #2A3244;
+    --signal: #D98C3F;
+    --signal-soft: #B5651D;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  ::selection { background: var(--signal-soft); color: #fff; }
 
+  /* ---- nav ---- */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  nav .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .brand { font-family: var(--mono); font-weight: 700; font-size: 0.95rem; letter-spacing: -0.01em; }
+  .brand .dot { color: var(--signal); }
+  .navlinks { display: flex; gap: 24px; font-size: 0.85rem; color: var(--ink-soft); }
+  .navlinks a { text-decoration: none; }
+  .navlinks a:hover { color: var(--ink); }
 
-    <!--  Bootstrap css file  -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+  /* ---- hero ---- */
+  header.hero { padding: 72px 0 56px; }
+  .hero-kicker {
+    font-family: var(--mono); font-size: 0.8rem; color: var(--signal);
+    margin-bottom: 18px;
+  }
+  h1.headline {
+    font-family: var(--mono); font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    line-height: 1.12; letter-spacing: -0.02em;
+    max-width: 15ch;
+    margin-bottom: 20px;
+  }
+  .hero-sub {
+    max-width: 56ch; color: var(--ink-soft); font-size: 1.05rem;
+    margin-bottom: 36px;
+  }
+  .hero-sub strong { color: var(--ink); font-weight: 600; }
 
-    <!--  font awesome icons  -->
-    <link rel="stylesheet" href="./css/all.min.css">
+  /* ---- pipeline diagram ---- */
+  .pipeline {
+    display: flex; align-items: stretch; gap: 0;
+    border: 1px solid var(--line); border-radius: 4px;
+    overflow: hidden; background: var(--bg-raised);
+  }
+  .pipe-stage {
+    flex: 1; padding: 18px 16px; position: relative;
+    border-right: 1px solid var(--line);
+  }
+  .pipe-stage:last-child { border-right: none; }
+  .pipe-num {
+    font-family: var(--mono); font-size: 0.7rem; color: var(--signal);
+    display: flex; align-items: center; gap: 6px; margin-bottom: 8px;
+  }
+  .pipe-num .node { width: 6px; height: 6px; background: var(--signal); display: inline-block; }
+  .pipe-label { font-family: var(--mono); font-weight: 500; font-size: 0.85rem; }
+  .pipe-arrow {
+    display: none; align-items: center; padding: 0 4px; color: var(--line);
+    font-size: 0.9rem;
+  }
+  @media (min-width: 720px) {
+    .pipe-arrow { display: flex; }
+    .pipeline { align-items: center; }
+  }
+  @media (max-width: 719px) {
+    .pipeline { flex-direction: column; }
+    .pipe-stage { border-right: none; border-bottom: 1px solid var(--line); }
+    .pipe-stage:last-child { border-bottom: none; }
+  }
 
+  /* ---- section shell ---- */
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; gap: 16px; }
+  h2.section-title { font-family: var(--mono); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+  .section-note { font-size: 0.85rem; color: var(--ink-soft); text-align: right; }
 
-    <!--  Magnific Popup css file  -->
-    <link rel="stylesheet" href="./vendor/Magnific-Popup/dist/magnific-popup.css">
+  /* ---- about ---- */
+  .about-body { max-width: 62ch; color: var(--ink-soft); font-size: 1rem; margin-bottom: 28px; }
+  .about-body strong { color: var(--ink); font-weight: 600; }
+  .stack-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+  }
+  .stack-cell { background: var(--bg); padding: 16px 18px; }
+  .stack-cell h3 {
+    font-family: var(--mono); font-size: 0.72rem; color: var(--signal);
+    font-weight: 500; margin-bottom: 10px;
+  }
+  .stack-cell ul { list-style: none; font-size: 0.9rem; color: var(--ink-soft); }
+  .stack-cell li { padding: 3px 0; }
 
+  /* ---- projects ---- */
+  .project {
+    display: grid; grid-template-columns: 140px 1fr; gap: 24px;
+    padding: 28px 0; border-bottom: 1px solid var(--line);
+  }
+  .project:last-child { border-bottom: none; }
+  @media (max-width: 640px) { .project { grid-template-columns: 1fr; gap: 12px; } }
+  .project-meta { font-family: var(--mono); }
+  .project-index { font-size: 0.75rem; color: var(--signal); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .project-index .node { width: 6px; height: 6px; background: var(--signal); display: inline-block; }
+  .project-tags { display: flex; flex-direction: column; gap: 5px; }
+  .tag { font-size: 0.7rem; color: var(--ink-soft); border: 1px solid var(--line); padding: 2px 6px; border-radius: 3px; width: fit-content; }
+  .project-name { font-family: var(--mono); font-weight: 700; font-size: 1.08rem; margin-bottom: 8px; }
+  .project-desc { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 10px; max-width: 58ch; }
+  .project-outcome {
+    font-size: 0.9rem; padding-left: 12px; border-left: 2px solid var(--signal);
+    color: var(--ink);
+  }
+  .project-links { display: flex; gap: 10px; margin-top: 16px; }
+  .plink {
+    font-family: var(--mono); font-size: 0.75rem; text-decoration: none;
+    padding: 6px 12px; border-radius: 3px; border: 1px solid var(--line);
+    color: var(--ink-soft); transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .plink:hover { border-color: var(--signal); color: var(--signal); }
+  .plink.live { border-color: var(--signal); color: var(--signal); }
+  .plink.live:hover { background: var(--signal); color: #fff; }
 
-    <!--  Owl-carousel css file  -->
-    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css">
+  /* ---- experience ---- */
+  .exp-row { display: flex; justify-content: space-between; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .exp-row:last-child { border-bottom: none; }
+  .exp-role { font-weight: 600; font-size: 0.98rem; }
+  .exp-org { color: var(--ink-soft); font-size: 0.88rem; margin-top: 2px; }
+  .exp-time { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); white-space: nowrap; }
+  .exp-desc { color: var(--ink-soft); font-size: 0.9rem; margin-top: 8px; max-width: 60ch; }
 
+  /* ---- contact ---- */
+  .contact-panel {
+    background: var(--bg-raised); border: 1px solid var(--line); border-radius: 4px;
+    padding: 40px 32px; text-align: left;
+  }
+  .contact-panel h2 { font-family: var(--mono); font-size: 1.5rem; margin-bottom: 12px; max-width: 20ch; }
+  .contact-panel p { color: var(--ink-soft); max-width: 50ch; margin-bottom: 24px; }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    font-family: var(--mono); font-size: 0.85rem; text-decoration: none;
+    padding: 10px 18px; border-radius: 3px; border: 1px solid var(--line);
+    color: var(--ink); transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn.primary { background: var(--signal); border-color: var(--signal); color: #fff; }
+  .btn.primary:hover { background: var(--signal-soft); border-color: var(--signal-soft); }
+  .btn:not(.primary):hover { border-color: var(--signal); color: var(--signal); }
 
-    <!--  custom css file  -->
-    <link rel="stylesheet" href="./css/style.css">
+  footer { padding: 28px 0 48px; font-size: 0.78rem; color: var(--ink-soft); font-family: var(--mono); }
 
-    <!--  Responsive css file  -->
-    <link rel="stylesheet" href="./css/responsive.css">
-
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
 </head>
-
 <body>
 
+<nav>
+  <div class="wrap">
+    <div class="brand">nikhil<span class="dot">.</span>dev</div>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
 
-    <!--  ======================= Start Header Area ============================== -->
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-kicker">AI/ML ENGINEER · AGENT SYSTEMS & LLM INFRASTRUCTURE</div>
+    <h1 class="headline">I build AI systems that businesses can run in production.</h1>
+    <p class="hero-sub">
+      2 years shipping <strong>multi-agent pipelines, document intelligence, and LLM infrastructure</strong>
+      for enterprise clients — from document compliance agents to retrieval systems, deployed across
+      OCI, Azure, and GCP.
+    </p>
 
-    <header class="header_area">
-        <div class="main-menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="./img/port2.png" alt="logo" height="150" width="250"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="mr-auto"></div>
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">about</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">services</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="#project">Project</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">contact</a>
-                        </li>
+    <div class="pipeline">
+      <div class="pipe-stage">
+        <div class="pipe-num"><span class="node"></span>01</div>
+        <div class="pipe-label">Ingest</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-stage">
+        <div class="pipe-num"><span class="node"></span>02</div>
+        <div class="pipe-label">Extract & reason</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-stage">
+        <div class="pipe-num"><span class="node"></span>03</div>
+        <div class="pipe-label">Validate</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-stage">
+        <div class="pipe-num"><span class="node"></span>04</div>
+        <div class="pipe-label">Deliver to system</div>
+      </div>
+    </div>
+  </header>
 
-                    </ul>
-                </div>
-            </nav>
+  <section id="about">
+    <div class="section-head">
+      <h2 class="section-title">About</h2>
+    </div>
+    <p class="about-body">
+      I'm an AI/ML engineer working on <strong>AI/ML platform development, solutions architecture, and
+      client delivery</strong>. My work spans multi-agent systems, LLM infrastructure, data quality
+      pipelines, and enterprise integrations — the connective tissue between "an LLM can do this" and
+      "this runs reliably inside a business's actual workflow."
+    </p>
+    <p class="about-body">
+      I care most about the parts of AI engineering that don't show up in a demo: confidence scoring,
+      human-review checkpoints, duplicate detection, retry/backoff on flaky providers, and designing
+      systems that degrade gracefully instead of hallucinating silently.
+    </p>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <h2 class="section-title">Selected work</h2>
+      <div class="section-note">5 systems, built end to end</div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">
+        <div class="project-index"><span class="node"></span>01</div>
+        <div class="project-tags">
+          <span class="tag">LangGraph</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Celery + Redis</span>
         </div>
-    </header>
-
-    <!--  ======================= End Header Area ============================== -->
-
-    <!--  ======================= Start Main Area ================================ -->
-    <main class="site-main">
-
-
-        <!--  ======================= Start Banner Area =======================  -->
-        <section class="site-banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 site-title">
-                        <h3 class="title-text">Hey</h3>
-                        <h1 class="title-text text-uppercase">I am Nikhil</h1>
-                        <h4 class="title-text text-uppercase">Data Scientist</h4>
-                        <div class="site-buttons">
-                            <div class="d-flex flex-row flex-wrap">
-                                <button type="button" class="btn button primary-button mr-4 text-uppercase">hire
-                                    me</button>
-                                <button type="button"  class="btn button secondary-button text-uppercase " id="abc"><a class="cvbtn" href="CV.pdf" download>Get cv</a></button>
-                            </div>
-                            <style >
-
-                                .cvbtn{
-                                    color: black;
-                                }
-                                #abc:hover{
-                                    color: white;
-                                }
-                                .cvbtn:hover
-                                {
-                                    text-decoration:none;
-                                    color: white;
-                                }
-                            </style>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 banner-image">
-                        <img src="./img/banner/banner-image.png" alt="banner-img" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--  ======================= End Banner Area =======================  -->
-
-        <!--  ========================= About Area ==========================  -->
-
-        <section class="about-area" id="about">
-            <div class="container-fluid" >
-                <div class="row">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="about-image">
-                            <img src="./img/Nikhil_pic.jpg" alt="About us" class="img-fluid" >
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 about-title">
-                        <h2 class="text-uppercase pt-5">
-                            <span>Let me</span>
-                            <span>introduce</span>
-                            <span>myself</span>
-                        </h2>
-                        <div class="paragraph py-4 w-75">
-                            <p class="para">
-                                Hi! My name is Nikhil Kumar Vishwakarma. I am a Data Scientist, Web developer, and I’m here to introduce myself in my professional portfolio. I hope that you enjoy the work I’ve created.
-
-                            </p>
-                            <p class="para">                           
-                             I’m a Data Science specializing in predicting future and help to improve brand building. My work has been featured on this website where you can see my projects that i have worked on.I have worked with many clients to help them create powerful identities for their companies.
-
-                            </p>
-                        </div>
-                        <button type="button" class="btn button primary-button text-uppercase">Download cv</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--  ========================= End About Area ==========================  -->
-
-        <!--  ======================== Brand Area ==============================  -->
-
-        <section class="brand-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-12 col-md-12">
-                        <div class="first-row row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo1.png" alt="Brand-1 ">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo2.png" alt="Brand-2 ">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo3.png" alt="Brand-3 ">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo4.png" alt="Brand-4">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo5.png" alt="Brand-5 ">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo6.png" alt="Brand-6">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo7.png" alt="Brand-7 ">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo8.png" alt="Brand-8 ">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo9.png" alt="Brand-9">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-12 col-md-12">
-                        <div class="experience-area">
-                            <div class="d-flex flex-row years-area">
-                                <h2 class="p-3 years"></h2>
-                                <h2>
-                                    <span>No</span>
-                                    <span>Experience</span>
-                                    <span>Working</span>
-                                </h2>
-                            </div>
-                            <div class="d-flex flex-row flex-wrap call-area">
-                                <span><i class="fas fa-phone-alt fa-3x px-3"></i></span>
-                                <div class="call-now">
-                                    <a href="#" class="text-uppercase h4 font-roboto">Call Now</a>
-                                    <span class="font-roboto py-2">(+91)-620-504-3600</span>
-                                </div>
-                            </div>
-                            <div class="bg-panel"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--  ======================== End Brand Area ==============================  -->
-
-        <!--  ====================== Start Services Area =============================  -->
-
-        <section class="services-area" id="services">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-lg-12 text-center services-title">
-                        <h1 class="text-uppercase title-text">Services Offers</h1>
-                        <p class="para">
-                            Although wine datasets are common in portfolios, Nikhil brings something completely new to the story through humorous section titles and exceptional visualizations. The charts here combine coolness with clarity, showcasing a clear understanding of how to tell a story and keep a reader interested.
-                        </p>
-                    </div>
-                </div>
-                <div class="container services-list">
-                    <div class="row d-flex justify-content-around">
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="services">
-                                <div class="sevices-img text-center py-4">
-                                    <img src="./img/services/s1.png" alt="Services-1">
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-uppercase font-roboto">Web developer</h5>
-                                    <p class="card-text text-secondary">
-                                        Design and Create  Websites for industries welfare. 
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="services">
-                                <div class="sevices-img text-center py-4">
-                                    <img src="./img/services/s2.png" alt="Services-2">
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-uppercase font-roboto">Data Scientist</h5>
-                                    <p class="card-text text-secondary">
-                                   Code-based projects
-                                   Code-based projects are the most common type of portfolio project. In a nutshell, it replicates real-world data science projects by taking a dataset and solving a problem around it. Examples of code-based projects include:
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="services">
-                                <div class="sevices-img text-center py-4">
-                                    <img src="./img/services/s3.png" alt="Services-3">
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-uppercase font-roboto">Data Analyst</h5>
-                                    <p class="card-text text-secondary">
-                                        Analyze Data and perform some mathematical calculations and prepare data for further predictions and normalize. 
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--  ====================== End Services Area =============================  -->
-
-        <!--  ======================= Project Area =============================  -->
-
-        <section class="project-area" id="project">
-            <div class="container">
-                <div class="project-title pb-5">
-                    <h1 class="text-uppercase title-h1">Recently Done Project</h1>
-                    <h1 class="text-uppercase title-h1">Quality Work</h1>
-                </div>
-                <div class="row grid">
-                	<div class="col-lg-4 col-md-6 col-sm-12 element-item latest">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/02/cricket-stats.jpg">
-                                    <img src="./img/portfolio/cricket-stats.jpg" alt="portfolio-10" class="img-fluid">
-                                </a>
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Cricket Data <br><br>Analytics </h4>
-                                <span class="text-secondary">Ongoing, project</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item latest">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="/img/portfolio/cricket-stats.jpg">
-                                    <img src="./img/portfolio/heart.jpg" alt="portfolio-1" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Heart Disease </h4>
-                                <span class="text-secondary">Latest, project</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item popular">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p2.jpg">
-                                    <img src="./img/portfolio/Cat & Dogs.jpg" alt="portfolio-2" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Cats and Dogs image <br><br>clasification</h4>
-                                <span class="text-secondary">Popular, Nural networks</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item popular">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p3.jpg">
-                                    <img src="./img/portfolio/notepad-3297994__480.jpg" alt="portfolio-3" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Notepad</h4>
-                                <span class="text-secondary">Popular, Python</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item upcoming">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p4.jpg">
-                                    <img src="./img/portfolio/Qrcode.jpg" alt="portfolio-4" class="img-fluid" height="50">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">QR-Code Scanner</h4>
-                                <span class="text-secondary">Recently, Python</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item upcoming">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p5.jpg">
-                                    <img src="./img/portfolio/Academic-Block.jpg" alt="portfolio-5" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">College Website(Clone)</h4>
-                                <span class="text-secondary">Upcoming, website</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item following">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p6.jpg">
-                                    <img src="./img/portfolio/Mnist.jpg" alt="portfolio-6" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">MINIST Image<br><br> Classification</h4>
-                                <span class="text-secondary">Recently, Nural networks</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item following">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p7.jpg">
-                                    <img src="./img/portfolio/Fifa.jpg" alt="portfolio-7" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Fifa world cup data</h4>
-                                <span class="text-secondary">Rectly, Regression</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item following">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p8.jpg">
-                                    <img src="./img/portfolio/Uber.jpg" alt="portfolio-8" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Uber Data Prediction</h4>
-                                <span class="text-secondary">Recently, Data Science</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item upcoming">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p9.jpg">
-                                    <img src="./img/portfolio/sales.jpg" alt="portfolio-9" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Sales dataset </h4>
-                                <span class="text-secondary">Recently, Data Science</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--  ======================= End Project Area =============================  -->
-
-        <!--  ======================== About Me Area ==============================  -->
-
-        <section class="about-area">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-12">
-                        <div class="about-title">
-                            <h1 class="text-uppercase title-h1">Client Say about me</h1>
-                            <p class="para">
-                                Hard Working and Dedicated person  projects and works are submitted on or before the given time.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!--  ======================== End About Me Area ==============================  -->
-
-        <!--  ========================== Subscribe me Area ============================  -->
-        <section class="subscribe-us-area" id="contact">
-            <div class="container subscribe">
-                <div class="row">
-                    <div class="col-lg-12 text-center subscribe-title">
-                        <h4 class="text-uppercase">Contact Me</h4>
-                        <!-- <p class="para">Email Id: nk113018@gmail.com
-                          <br>Ranchi,Jharkhand</p> -->
-                    </div>
-                </div>
-                <div class="d-sm-flex justify-content-center">
-                    <form id="contactForm" action="https://formsubmit.co/nk113018@gmail.com" method="POST">
-                        <fieldset>
-                            <br>
-                            <input class="contactFormField" type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_subject" value="Hey there, I have visited your Portfolio!">
-                            <input class="contactFormField" type="text" name="name" placeholder="Your name" required><br>
-                            <input class="contactFormField" type="email" name="email" placeholder="Your email" required><br>
-                            <textarea class="contactFormField" name="message" placeholder="Details of your message" required></textarea><br>
-                            <button class="btn button secondary-button text-uppercase btx" type="submit">Send</button>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <!--  ========================== End Subscribe me Area ============================  -->
-
-
-    </main>
-    <!--  ======================= End Main Area ================================ -->
-
-    <footer class="footer-area">
-        <div class="container">
-            <div class="">
-                <div class="site-logo text-center py-4">
-                    <a href="#"><img src="./img/logo.png" alt="logo"></a>
-                </div>
-                <div class="social text-center">
-                    <h5 class="text-uppercase">Follow me</h5>
-                    <a href="https://github.com/Nikhil-029"><i class="fab fa-github"></i></a>
-                    <a href="https://www.kaggle.com/nikhil113018"><i class="fab fa-kaggle"></i></a>
-                    <a href="https://www.linkedin.com/in/nikhil029"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://developers.google.com/profile/u/113810982775479128275?authuser=0"><i class="fab fa-google"></i></a>
-                </div>
-                <div class="copyrights text-center">
-                    <p class="para">
-                        Thank you I hope you have seen some awsome projects and portfolio. 
-                        <a href="#"><span style="color: var(--primary-color);">Data Science</span></a>
-                    </p>
-                </div>
-            </div>
+      </div>
+      <div>
+        <div class="project-name">Trade Finance Document Compliance Agent</div>
+        <p class="project-desc">
+          A production-grade LangGraph pipeline that checks Letters of Credit, invoices, and Bills of
+          Lading against UCP 600 rules — parallel extraction nodes feed a consistency agent and a
+          discrepancy checker, with a human-review queue for anything ambiguous.
+        </p>
+        <div class="project-outcome">Catches trade-document discrepancies before they cause payment delays or bank rejections.</div>
+        <div class="project-links">
+          <a class="plink" href="https://github.com/yourusername/trade-finance-agent" target="_blank" rel="noopener">View code →</a>
+          <a class="plink" href="#" target="_blank" rel="noopener">Watch demo →</a>
         </div>
-    </footer>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">
+        <div class="project-index"><span class="node"></span>02</div>
+        <div class="project-tags">
+          <span class="tag">OCR + LLM</span>
+          <span class="tag">Pluggable connectors</span>
+          <span class="tag">SQLite</span>
+        </div>
+      </div>
+      <div>
+        <div class="project-name">Invoice → Accounting Sync Agent</div>
+        <p class="project-desc">
+          Upload an invoice, get structured data with per-field confidence scores, review and edit
+          in one screen, then sync straight into Google Sheets, QuickBooks, or Tally through a
+          pluggable connector interface — with duplicate detection built in.
+        </p>
+        <div class="project-outcome">Cuts manual invoice entry by roughly 90% and eliminates transcription errors before they hit the books.</div>
+        <div class="project-links">
+          <a class="plink" href="https://github.com/yourusername/invoice-sync-agent" target="_blank" rel="noopener">View code →</a>
+          <a class="plink live" href="#" target="_blank" rel="noopener">Try live demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">
+        <div class="project-index"><span class="node"></span>03</div>
+        <div class="project-tags">
+          <span class="tag">Two-stage LLM</span>
+          <span class="tag">PptxGenJS</span>
+          <span class="tag">Sandboxed exec</span>
+        </div>
+      </div>
+      <div>
+        <div class="project-name">AI Slide Deck Generator</div>
+        <p class="project-desc">
+          Turns a raw document or report into a designed slide deck through a two-stage pipeline —
+          content planning, then code generation — rendered via PptxGenJS inside a sandboxed
+          execution environment for safety and repeatability.
+        </p>
+        <div class="project-outcome">Turns a report or PDF into a client-ready deck in minutes instead of hours.</div>
+        <div class="project-links">
+          <a class="plink" href="https://github.com/yourusername/ppt-generation-agent" target="_blank" rel="noopener">View code →</a>
+          <a class="plink" href="#" target="_blank" rel="noopener">Watch demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">
+        <div class="project-index"><span class="node"></span>04</div>
+        <div class="project-tags">
+          <span class="tag">Whisper</span>
+          <span class="tag">CLIP</span>
+          <span class="tag">Milvus</span>
+        </div>
+      </div>
+      <div>
+        <div class="project-name">Multimodal Video RAG Platform</div>
+        <p class="project-desc">
+          Ingests video, transcribes with Faster Whisper, embeds frames with CLIP, and indexes both
+          into Milvus — so a viewer can ask a natural-language question and jump straight to the
+          exact timestamp that answers it.
+        </p>
+        <div class="project-outcome">Turns a meeting or training video archive into something a team can actually search.</div>
+        <div class="project-links">
+          <a class="plink" href="https://github.com/yourusername/video-rag-platform" target="_blank" rel="noopener">View code →</a>
+          <a class="plink" href="#" target="_blank" rel="noopener">Watch demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">
+        <div class="project-index"><span class="node"></span>05</div>
+        <div class="project-tags">
+          <span class="tag">Vector DB</span>
+          <span class="tag">Cited retrieval</span>
+          <span class="tag">FastAPI</span>
+        </div>
+      </div>
+      <div>
+        <div class="project-name">Regulatory Document RAG Assistant</div>
+        <p class="project-desc">
+          A retrieval-augmented assistant over long, dense regulatory or policy corpora — every answer
+          comes with a citation back to the source document, with retry/backoff handling for
+          rate-limited providers and a streaming progress UI.
+        </p>
+        <div class="project-outcome">Turns hours of manual policy lookup into a cited answer in seconds.</div>
+        <div class="project-links">
+          <a class="plink" href="https://github.com/yourusername/regulatory-rag-bot" target="_blank" rel="noopener">View code →</a>
+          <a class="plink" href="#" target="_blank" rel="noopener">Watch demo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="section-head">
+      <h2 class="section-title">Stack</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-cell">
+        <h3>Orchestration & agents</h3>
+        <ul>
+          <li>LangGraph</li>
+          <li>Multi-agent pipelines</li>
+          <li>FastAPI</li>
+          <li>Celery + Redis</li>
+        </ul>
+      </div>
+      <div class="stack-cell">
+        <h3>Models & inference</h3>
+        <ul>
+          <li>Groq / Llama</li>
+          <li>Gemini</li>
+          <li>vLLM + semantic routing</li>
+          <li>OCR (Tesseract)</li>
+        </ul>
+      </div>
+      <div class="stack-cell">
+        <h3>Data & retrieval</h3>
+        <ul>
+          <li>FAISS</li>
+          <li>Milvus</li>
+          <li>Oracle 23ai vector DB</li>
+          <li>ChromaDB</li>
+        </ul>
+      </div>
+      <div class="stack-cell">
+        <h3>Cloud & infra</h3>
+        <ul>
+          <li>OCI (GenAI, object storage)</li>
+          <li>Azure</li>
+          <li>GCP</li>
+          <li>Docker / E2B sandboxing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="exp-row">
+      <div>
+        <div class="exp-role">AI/ML Engineer</div>
+        <div class="exp-org">Unicloud Pte. Ltd.</div>
+        <div class="exp-desc">
+          AI/ML platform development, solutions architecture, and client delivery — building
+          multi-agent systems, LLM infrastructure, data quality pipelines, and enterprise
+          integrations across OCI, Azure, and GCP.
+        </div>
+      </div>
+      <div class="exp-time">2 yrs</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-panel">
+      <h2>Have a workflow that needs an AI system, not a chatbot?</h2>
+      <p>
+        I take on freelance builds for document processing, agentic automation, and LLM
+        infrastructure — happy to talk through what you're trying to solve.
+      </p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:your@email.com">Email me</a>
+        <a class="btn" href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Built by Nikhil — AI/ML Engineer.
+  </footer>
+</div>
+
 </body>
-
 </html>
